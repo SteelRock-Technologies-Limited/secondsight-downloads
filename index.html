@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>SecondSight Downloads</title>
+<link rel="icon" href="sr.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+ /* SecondSight Device Updater - customer download page. Same palette as the product's sign-in
+    screen: near-black ground, white ink, hints in grey, red on the wordmark, teal only on the
+    download buttons. Links come from links.json beside this file, so a new build never means
+    editing the page. Single dark look by design. */
+ :root{color-scheme:dark;
+   --bg:#080A09; --panel:#131A18; --panel2:#0E1412; --line:#2C3730;
+   --ink:#FFFFFF; --ink2:#D8E0DA; --hint:#6B7684; --red:#CF4038;
+   --act:#5CC2B2; --on-act:#080A09; --warn:#D8A23A;
+   --display:"Barlow Condensed",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace}
+ *{box-sizing:border-box}
+ html,body{margin:0;background:var(--bg)}
+ body{color:var(--ink);font-family:var(--body);line-height:1.55;font-size:15px}
+ .wrap{max-width:760px;margin:0 auto;padding-block:40px 64px;padding-inline:20px}
+ .brand{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+ .brand img{width:88px;height:auto;display:block}
+ .word{font-family:var(--display);font-weight:700;font-size:2.6rem;letter-spacing:.01em;line-height:1;margin-top:6px}
+ .word b{color:var(--red);font-weight:700}
+ .prompt{font-family:var(--mono);font-size:.9rem;color:var(--ink2);margin:6px 0 0;max-width:62ch}
+ .chip{font-family:var(--mono);font-size:.78rem;color:var(--ink2);margin-top:6px;letter-spacing:.02em}
+ h2{font-family:var(--display);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.95rem;color:var(--ink2);margin:30px 0 6px}
+ .small{font-family:var(--mono);font-size:.74rem;color:var(--hint)}
+ .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:10px}
+ .os{background:var(--panel);padding:22px 20px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0;min-height:100%}
+ .os h3{font-family:var(--display);font-weight:700;letter-spacing:.06em;font-size:1.35rem;margin:0;color:var(--ink)}
+ .os .sub{font-family:var(--mono);font-size:.76rem;color:var(--hint);margin-bottom:14px}
+ .btn{display:inline-block;background:var(--act);color:var(--on-act);font-weight:600;border:none;border-radius:0;padding:13px 26px;font-size:1rem;cursor:pointer;text-decoration:none;letter-spacing:.04em;font-family:var(--body);min-width:220px}
+ .btn:hover{background:#76D0C2}
+ .btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+ .btn[aria-disabled="true"]{background:var(--panel2);color:var(--hint);cursor:not-allowed;border:1px solid var(--line);pointer-events:none}
+ .note{font-family:var(--mono);font-size:.76rem;color:var(--warn);margin-top:10px;min-height:1.2em}
+ .steps{margin-top:34px;border-top:1px solid var(--line);padding-top:6px}
+ ol{color:var(--ink2);font-size:.92rem;max-width:66ch;margin:0;padding-left:1.3em}
+ ol li{margin-bottom:8px}
+ ol b,p b{color:var(--ink);font-weight:600}
+ p{color:var(--ink2);max-width:66ch}
+ .foot{margin-top:30px;border-top:1px solid var(--line);padding-top:14px;font-family:var(--mono);font-size:.72rem;color:var(--hint);text-align:center;letter-spacing:.03em;line-height:1.8}
+ .foot a{color:var(--ink2)}
+ @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="brand">
+  <img alt="" src="sr.png">
+  <div class="word">Second<b>Sight</b></div>
+  <p class="prompt">Device updater. Download for your operating system, then run it with the Android device plugged in.</p>
+  <span class="chip" id="build-chip"></span>
+ </div>
+
+ <h2>Device already has SecondSight ATAK</h2>
+ <div class="grid">
+  <div class="os">
+   <h3>WINDOWS</h3><div class="sub">Windows 10 / 11 PC · 27 MB</div>
+   <a class="btn" id="dl-windows" href="#" rel="noopener">Download for Windows</a>
+   <div class="note" id="note-windows"></div>
+  </div>
+  <div class="os">
+   <h3>MAC</h3><div class="sub">macOS (Apple) · 20 MB</div>
+   <a class="btn" id="dl-mac" href="#" rel="noopener">Download for Mac</a>
+   <div class="note" id="note-mac"></div>
+  </div>
+ </div>
+
+ <h2>New device, or one with a Play Store ATAK</h2>
+ <p class="small" style="margin:0 0 4px">These carry the SecondSight ATAK as well (about 380 MB). The updater installs it, or replaces the Play Store one, then adds the plugin.</p>
+ <div class="grid">
+  <div class="os">
+   <h3>WINDOWS + ATAK</h3><div class="sub">Windows 10 / 11 PC · 387 MB</div>
+   <a class="btn" id="dl-windowsAtak" href="#" rel="noopener">Download for Windows</a>
+   <div class="note" id="note-windowsAtak"></div>
+  </div>
+  <div class="os">
+   <h3>MAC + ATAK</h3><div class="sub">macOS (Apple) · 380 MB</div>
+   <a class="btn" id="dl-macAtak" href="#" rel="noopener">Download for Mac</a>
+   <div class="note" id="note-macAtak"></div>
+  </div>
+ </div>
+
+ <div class="steps">
+  <h2>First time on a device</h2>
+  <ol>
+   <li>On the device: <b>Settings</b> › <b>About phone / About tablet</b> › <b>Software information</b>, tap <b>Build number</b> seven times. Then <b>Settings</b> › <b>Developer options</b> › <b>USB debugging</b> on.</li>
+   <li>Plug the device into the computer with a data cable and tap <b>Allow</b> on the USB-debugging prompt.</li>
+   <li>Unzip the download and run <b>SecondSight Updater</b> (on a Mac, right-click "SecondSight Updater.command" and choose Open the first time). Put your name in and press <b>UPDATE DEVICE</b>. It checks the ATAK on the device, installs the plugin and keeps your SecondSight settings.</li>
+   <li>Start ATAK on the device. SecondSight is under <b>Tools</b> › <b>Plugins</b>, and signs in with the account you were given.</li>
+  </ol>
+ </div>
+
+ <div class="foot">
+  SecondSight is issued under licence to named customers of Steel Rock Technologies Limited. Do not forward this page.<br>
+  Questions: your SteelRock contact, or <a href="mailto:jd@sruav.co.uk">jd@sruav.co.uk</a>.
+ </div>
+</div>
+
+<script>
+// links.json: {"windows":"…","mac":"…","windowsAtak":"…","macAtak":"…","plugin":"v4.2.9","atak":"5.6.0","build":"2a306b7","published":"2026-09-30"}
+(async () => {
+  let cfg = {};
+  try { cfg = await (await fetch("links.json", {cache: "no-store"})).json(); } catch (e) {}
+  for (const key of ["windows", "mac", "windowsAtak", "macAtak"]) {
+    const a = document.getElementById("dl-" + key), note = document.getElementById("note-" + key);
+    const url = (cfg[key] || "").trim();
+    if (url) { a.href = url; a.removeAttribute("aria-disabled"); note.textContent = ""; }
+    else { a.href = "#"; a.setAttribute("aria-disabled", "true"); note.textContent = "Not available yet."; }
+  }
+  const chip = document.getElementById("build-chip");
+  if (cfg.plugin) {
+    const bits = ["Plugin " + cfg.plugin];
+    if (cfg.atak) bits.push("ATAK " + cfg.atak);
+    if (cfg.build) bits.push("build " + cfg.build);
+    if (cfg.published) bits.push("published " + cfg.published);
+    chip.textContent = bits.join("  ·  ");
+  }
+})();
+</script>
+</body>
+</html>
