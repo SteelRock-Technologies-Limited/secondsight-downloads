@@ -54,36 +54,20 @@
  <div class="brand">
   <img alt="" src="sr.png">
   <div class="word">Second<b>Sight</b></div>
-  <p class="prompt">Device updater. Download for your operating system, then run it with the Android device plugged in.</p>
+  <p class="prompt">SecondSight installer. Download for your computer, then run it with the Android device plugged in. It installs SecondSight on a new device and updates one that already has it.</p>
   <span class="chip" id="build-chip"></span>
  </div>
 
- <h2>Device already has SecondSight ATAK</h2>
- <div class="grid">
+ <div class="grid" style="margin-top:30px">
   <div class="os">
-   <h3>WINDOWS</h3><div class="sub">Windows 10 / 11 PC · 27 MB</div>
+   <h3>WINDOWS INSTALLER</h3><div class="sub">Windows 10 / 11 PC · 387 MB</div>
    <a class="btn" id="dl-windows" href="#" rel="noopener">Download for Windows</a>
    <div class="note" id="note-windows"></div>
   </div>
   <div class="os">
-   <h3>MAC</h3><div class="sub">macOS (Apple) · 20 MB</div>
+   <h3>MAC INSTALLER</h3><div class="sub">macOS (Apple) · 380 MB</div>
    <a class="btn" id="dl-mac" href="#" rel="noopener">Download for Mac</a>
    <div class="note" id="note-mac"></div>
-  </div>
- </div>
-
- <h2>New device, or one with a Play Store ATAK</h2>
- <p class="small" style="margin:0 0 4px">These carry the SecondSight ATAK as well (about 380 MB). The updater installs it, or replaces the Play Store one, then adds the plugin.</p>
- <div class="grid">
-  <div class="os">
-   <h3>WINDOWS + ATAK</h3><div class="sub">Windows 10 / 11 PC · 387 MB</div>
-   <a class="btn" id="dl-windowsAtak" href="#" rel="noopener">Download for Windows</a>
-   <div class="note" id="note-windowsAtak"></div>
-  </div>
-  <div class="os">
-   <h3>MAC + ATAK</h3><div class="sub">macOS (Apple) · 380 MB</div>
-   <a class="btn" id="dl-macAtak" href="#" rel="noopener">Download for Mac</a>
-   <div class="note" id="note-macAtak"></div>
   </div>
  </div>
 
@@ -92,7 +76,7 @@
   <ol>
    <li>On the device: <b>Settings</b> › <b>About phone / About tablet</b> › <b>Software information</b>, tap <b>Build number</b> seven times. Then <b>Settings</b> › <b>Developer options</b> › <b>USB debugging</b> on.</li>
    <li>Plug the device into the computer with a data cable and tap <b>Allow</b> on the USB-debugging prompt.</li>
-   <li>Unzip the download and run <b>SecondSight Updater</b> (on a Mac, right-click "SecondSight Updater.command" and choose Open the first time). Put your name in and press <b>UPDATE DEVICE</b>. It checks the ATAK on the device, installs the plugin and keeps your SecondSight settings.</li>
+   <li>Unzip the download and run <b>SecondSight Updater</b> (on a Mac, right-click "SecondSight Updater.command" and choose Open the first time). Put your name in and press <b>UPDATE DEVICE</b>. It puts SecondSight ATAK on the device if it is not there, installs the plugin and keeps your settings.</li>
    <li>Start ATAK on the device. SecondSight is under <b>Tools</b> › <b>Plugins</b>, and signs in with the account you were given.</li>
   </ol>
  </div>
@@ -104,11 +88,11 @@
 </div>
 
 <script>
-// links.json: {"windows":"…","mac":"…","windowsAtak":"…","macAtak":"…","plugin":"v4.2.9","atak":"5.6.0","build":"2a306b7","published":"2026-09-30"}
+// links.json: {"windows":"…with-ATAK.zip link","mac":"…Mac-with-ATAK.zip link","plugin":"v4.2.9","atak":"5.6.0","build":"2a306b7","published":"2026-09-30"}
 (async () => {
   let cfg = {};
   try { cfg = await (await fetch("links.json", {cache: "no-store"})).json(); } catch (e) {}
-  for (const key of ["windows", "mac", "windowsAtak", "macAtak"]) {
+  for (const key of ["windows", "mac"]) {
     const a = document.getElementById("dl-" + key), note = document.getElementById("note-" + key);
     const url = (cfg[key] || "").trim();
     if (url) { a.href = url; a.removeAttribute("aria-disabled"); note.textContent = ""; }
